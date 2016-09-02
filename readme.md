@@ -1,5 +1,6 @@
-# Knockout SPA • [TodoMVC]
+# Knockout SPA • [TodoMVC] [![Code Climate](https://codeclimate.com/github/onlyurei/todomvc-knockout-spa/badges/gpa.svg)](https://codeclimate.com/github/onlyurei/todomvc-knockout-spa)
 
+[knockout-spa](https://github.com/onlyurei/knockout-spa)
 > A mini but full-fledged SPA framework and boilerplate to build SPAs fast and scalable.
 
 
