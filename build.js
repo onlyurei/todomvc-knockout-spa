@@ -16,7 +16,10 @@
 			include: [
 				'app/shared/root-bindings',
 				'framework/router',
-				'framework/page'
+				'framework/page',
+				'text',
+				'css',
+				'jsface'
 			]
 		},
 		{
@@ -25,6 +28,18 @@
 		},
 		{
 			name: 'app/home/home',
+			exclude: ['common']
+		},
+		{
+			name: 'component/todo-item/todo-item',
+			exclude: ['common']
+		},
+		{
+			name: 'component/todo-item-edit/todo-item-edit',
+			exclude: ['common']
+		},
+		{
+			name: 'component/todo-list/todo-list',
 			exclude: ['common']
 		}
 	],

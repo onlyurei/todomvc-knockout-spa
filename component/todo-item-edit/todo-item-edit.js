@@ -14,7 +14,7 @@ define(['text!./todo-item-edit.html', 'jsface', 'util/dom', 'ko', 'sugar'], func
 					data.todoItem.model.editing = false;
 					data.todoItem.model.title = title;
 				} else {
-					data.todoItem.todoItemGroup.destroy(data.todoItem);
+					data.todoItem.todoList.destroyItem(data.todoItem);
 				}
 			} else if (keyCode === Dom.keyCodes.esc) {
 				data.todoItem.model.editing = false;

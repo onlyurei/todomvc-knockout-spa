@@ -1,7 +1,7 @@
-define(['text!./todo-item-group.html', 'model/todo-item', 'util/dom', 'jsface', 'ko', 'sugar'],
+define(['text!./todo-list.html', 'model/todo-item', 'util/dom', 'jsface', 'ko', 'sugar'],
 	function (template, TodoItem, Dom, Class, ko) {
 
-		var TodoItemGroup = Class({
+		var TodoList = Class({
 			constructor: function (params) {
 				this.filter = params.filter;
 				this.storageKey = params.storageKey || 'todos';
@@ -34,29 +34,29 @@ define(['text!./todo-item-group.html', 'model/todo-item', 'util/dom', 'jsface', 
 
 				return this;
 			},
-			createNewItem: function (data, event) {
+			createItem: function (data, event) {
 				var keyCode = (event.which ? event.which : event.keyCode);
 				if (keyCode === Dom.keyCodes.enter) {
 					var newItemTitle = this.newItemTitle.compact();
 					if (newItemTitle) {
-						this.models.push(new TodoItem({title: newItemTitle}));
+						this.models.push(new TodoItem({ title: newItemTitle }));
 						this.newItemTitle = '';
 					}
 				} else {
 					return true;
 				}
 			},
-			destroy: function (data) {
+			destroyItem: function (data) {
 				this.models.remove(function (model) {
 					return model.id === data.model.id;
 				});
 			},
-			destroyCompleted: function () {
+			destroyCompletedItems: function () {
 				this.models.remove(function (model) {
 					return model.completed;
 				});
 			},
-			toggleAll: function () {
+			toggleAllItems: function () {
 				var shouldMarkAllCompleted = !this.allCompleted;
 				this.models.forEach(function (model) {
 					model.completed = shouldMarkAllCompleted;
@@ -72,7 +72,7 @@ define(['text!./todo-item-group.html', 'model/todo-item', 'util/dom', 'jsface', 
 		});
 
 		return {
-			viewModel: TodoItemGroup,
+			viewModel: TodoList,
 			template: template
 		};
 

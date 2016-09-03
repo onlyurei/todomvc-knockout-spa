@@ -1,17 +1,17 @@
 <section class="todoapp">
 	<header class="header">
 		<h1>todos</h1>
-		<input data-bind="event: { keydown: createNewItem }, value: newItemTitle, valueUpdate: 'input'"
+		<input data-bind="event: { keydown: createItem }, value: newItemTitle, valueUpdate: 'input'"
 			   class="new-todo" placeholder="What needs to be done?" autofocus>
 	</header>
 	<section data-bind="visible: models.length" id="main" class="main">
 		<!-- ko if: models.length -->
-		<input data-bind="click: toggleAll, checked: allCompleted" class="toggle-all" type="checkbox">
+		<input data-bind="click: toggleAllItems, checked: allCompleted" class="toggle-all" type="checkbox">
 		<!-- /ko -->
 		<label for="toggle-all">Mark all as complete</label>
 		<ul data-bind="foreach: models" class="todo-list">
 			<li data-bind="css: { completed: completed, editing: editing }">
-				<todo-item params="model: $data, todoItemGroup: $parent"></todo-item>
+				<todo-item params="model: $data, todoList: $parent"></todo-item>
 			</li>
 		</ul>
 	</section>
@@ -32,7 +32,7 @@
 			</li>
 		</ul>
 		<!-- ko if: activeItemsCount < models.length -->
-		<button data-bind="click: destroyCompleted" class="clear-completed">Clear completed</button>
+		<button data-bind="click: destroyCompletedItems" class="clear-completed">Clear completed</button>
 		<!-- /ko -->
 	</footer>
 </section>

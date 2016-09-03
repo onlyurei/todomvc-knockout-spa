@@ -30,7 +30,7 @@ define(['knockout', 'knockout-amd-helpers', 'knockout-es5-option4', 'lib-ext/kno
 	//http://knockoutjs.com/documentation/component-registration.html#a-recommended-amd-module-pattern
 	ko.components.loaders.push({
 		getConfig: function (name, callback) {
-			callback({require: 'component/' + name + '/' + name});
+			callback({ require: 'component/' + name + '/' + name });
 		}
 	});
 

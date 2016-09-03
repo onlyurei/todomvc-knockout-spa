@@ -3,21 +3,21 @@ define(['text!./todo-item.html', 'jsface', 'ko', 'sugar'], function (template, C
 	var TodoItem = Class({
 		constructor: function (params) {
 			this.model = params.model;
-			this.todoItemGroup = params.todoItemGroup;
+			this.todoList = params.todoList;
 			ko.observe(this);
 
 			for (var prop in this.model) {
 				var key = '_' + prop;
 				if (this.model.hasOwnProperty(key) && ko.isObservable(this.model[key])) {
-					this.model[key].subscribe(this.todoItemGroup.persist.bind(this.todoItemGroup));
+					this.model[key].subscribe(this.todoList.persist.bind(this.todoList));
 				}
 			}
 
 			var computed = {
 				visible: function () {
-					if (this.todoItemGroup.filter() === '') { return true; }
-					if (this.todoItemGroup.filter() === 'active') { return !this.model.completed; }
-					if (this.todoItemGroup.filter() === 'completed') { return this.model.completed; }
+					if (this.todoList.filter() === '') { return true; }
+					if (this.todoList.filter() === 'active') { return !this.model.completed; }
+					if (this.todoList.filter() === 'completed') { return this.model.completed; }
 				}.bind(this)
 			};
 			Object.each(computed, function (key, value) {
