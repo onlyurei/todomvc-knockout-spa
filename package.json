@@ -8,7 +8,7 @@
     "knockout-amd-helpers": "^0.7.4",
     "knockout-es5-option4": "^0.7.0",
     "require-css": "^0.1.8",
-    "requirejs": "^2.2.0",
+    "requirejs": "^2.3.0",
     "requirejs-text": "^2.0.12",
     "sugar": "^1.5.0",
     "todomvc-app-css": "^2.0.0",
